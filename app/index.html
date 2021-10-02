@@ -11,8 +11,16 @@
     <script defer src="js/bootstrap.min.js"></script>
     <script defer src="js/helpers.js"></script>
     <script defer src="js/index.js" type="module"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link id="dark-theme-style" rel="stylesheet" />
+    <link id="theme-style" rel="stylesheet" />
+    <script>
+      const styleLink = document.getElementById('theme-style')
+      window.isDark = JSON.parse(localStorage.getItem('isDark'))
+      if (window.isDark) {
+        styleLink.setAttribute('href', 'css/bootstrap-dark.min.css')
+      } else {
+        styleLink.setAttribute('href', 'css/bootstrap.min.css')
+      }
+    </script>
     <link rel="stylesheet" href="css/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>LocalPass</title>

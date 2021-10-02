@@ -10,7 +10,7 @@ const electron = require("electron");
 // development production
 
 // Set env
-process.env.NODE_ENV = "production";
+process.env.NODE_ENV = "development";
 
 const isDev = process.env.NODE_ENV !== "production";
 const isMac = process.platform === "darwin";

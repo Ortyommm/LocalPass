@@ -1,6 +1,4 @@
-const styleLink = document.getElementById('dark-theme-style')
-
-window.isDark = JSON.parse(localStorage.getItem('isDark'))
+const styleLink = $('#theme-style')
 
 function chooseTheme() {
   if (window.isDark) {
@@ -15,7 +13,6 @@ function enableDarkTheme() {
 }
 
 function disableDarkTheme() {
-  styleLink.setAttribute('href', '')
+  styleLink.setAttribute('href', 'css/bootstrap.min.css')
 }
-
 export { chooseTheme, disableDarkTheme, enableDarkTheme, styleLink }
