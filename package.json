@@ -1,0 +1,51 @@
+{
+  "name": "local-pass",
+  "productName": "LocalPass",
+  "version": "1.2.1",
+  "description": "Храни свои пароли в безопасности!",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --exec electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"APP NAME\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=false --out=release-builds",
+    "build-installer": "electron-builder"
+  },
+  "build": {
+    "npmRebuild": false,
+    "appId": "local-pass",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "LocalPass",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "keywords": [
+    "Electron"
+  ],
+  "author": "Artem Margaryan",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^9.0.0",
+    "electron-builder": "^22.11.7",
+    "electron-packager": "^14.2.1",
+    "node-gyp": "^8.2.0",
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.5.0",
+    "electron-log": "^4.1.2",
+    "glob": "^7.2.0",
+    "jszip": "^3.7.1",
+    "platform-folders": "^0.5.4"
+  }
+}
