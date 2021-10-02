@@ -10,14 +10,12 @@ const electron = require("electron");
 // development production
 
 // Set env
-process.env.NODE_ENV = "development";
+process.env.NODE_ENV = "production";
 
 const isDev = process.env.NODE_ENV !== "production";
 const isMac = process.platform === "darwin";
 
 let mainWindow;
-//TODO normal debounce
-//TODO backups
 function createMainWindow() {
   mainWindow = new BrowserWindow({
     title: "LocalPass",
