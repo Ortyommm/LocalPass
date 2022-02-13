@@ -18,6 +18,7 @@ Vue.config.productionTip = isDev
 // tslint:disable-next-line: no-unused-expression
 //TODO theme change
 //TODO load password archive
+//TODO languages
 new Vue({
   el: '#app',
   router,

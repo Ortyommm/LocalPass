@@ -1,97 +1,43 @@
-<p align="center"><img src="./_icons/logotype1blue.png"></p>
+# LocalPass - программа для хранения паролей.
 
-# Vue-Electron-Template
+Как следует из названия, основное преимущество данной программы заключается в хранении паролей локально, так как выгрузка своих паролей на не всегда известный сервер часто вызывает недоверие. Пароли хранятся в зашифрованном виде, поэтому хранение их даже на своем ПК безопасно. 
 
-[![Build Status](https://travis-ci.org/mubaidr/vue-electron-template.svg?branch=master)](https://travis-ci.org/mubaidr/vue-electron-template)
-[![Build status](https://ci.appveyor.com/api/projects/status/cjua6pdhjp9rqa1o?svg=true)](https://ci.appveyor.com/project/mubaidr/vue-electron-template)
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+При каждом входе в программу вас будет встречать окно, которое требует пароль *от самой программы LocalPass*. По этому одному паролю шифруются и дешифруются все занесенные в программу пароли. Пароль от программы можно поменять в любое время.
 
-Template for building desktop applications using [Electronjs](https://electronjs.org) and [Vue.js](https://vuejs.org)
+![image-20211003125314937](https://i.ibb.co/ZYsNT3g/image-20211003123049108.png)
 
-## Overview
+Пароли в программе представлены в виде списка. Можно проводить поиск среди паролей. Пароли можно удалять и редактировать.
 
-This template takes advantage of `webpack-5` with `vue-loader`, `electron-builder`, and some of the most used plugins like `vue-router`, `vuex` and so much more to provide an easy to use development (with vscode debugging) enviroment with hot module replacement.
+![image-20211003125314937](https://i.ibb.co/KD3ZcR4/image-20211003125314937.png)
 
-### Features
+При нажатии открывается модальное окно:
 
-- [Bulma-Fluent](https://mubaidr.github.io/bulma-fluent/), a theme suitable for desktop application based on [Bulma](https://bulma.io/)
-- [vue-router](https://github.com/vuejs/vue-router)
-- [vuex](https://github.com/vuejs/vuex)
-- [vue-electron](https://github.com/SimulatedGREG/vue-electron)
-- [material-design-icons](http://google.github.io/material-design-icons/) installed
-- Some built-in animaitons [animations.scss](src\renderer\assets\style\animations.scss)
-- `SCSS`/`SASS` support with [vue-loader](https://github.com/vuejs/vue-loader/) (removes unused css/styles during build)
-- `Typescript` support (for `Vuejs` as well)
-- Worker scripts (to perform CPU-intensive operations), to use with nodejs `child_process` module. [Sample Worker File](src\utilities\workerSample.ts)
-- Easily package your electron app using [electron-builder](https://github.com/electron-userland/electron-builder)
-- `vue-devtools` installed
-- `DEV`, `DEBUG` & `BUILD` NPM scripts
-- `Babel` configured
-- `ESLint` configured
-- `vscode` debug config for renderer process debugging
-- Process restarting when working in main process & hot module replacement for renderer
-- Generates web/browser build in the `dist/web` directory too
-- `--debug` paramter to enable dev tools in production build executeable
+![image-20211003125504356](https://i.ibb.co/Fn2DwLd/image-20211003125504356.png)
 
-### Screenshot
+Создание пароля происходит через следующую форму:
 
-<p align="center"><img src="./screenshot.png"></p>
+![image-20211003123731555](https://i.ibb.co/SNXWpNv/image-20211003123731555.png)
 
-### Getting Started
+Пример заполнения данной формы:
 
-Clone this repository, install dependencies and run using either `dev`, `debug` or `build` command.
+![image-20211003123926851](https://i.ibb.co/G7BWVrF/image-20211003123926851.png)
 
-```bash
-# Clone this repository
-git clone https://github.com/mubaidr/vue-electron
+Если вы хотите сделать резервную копию всех паролей, то вам следует:
 
-# change directory to cloned path
-cd vue-electron
+1. Перейти в раздел "Опции".
+2. Нажать на "Создать резервную копию". На рабочем столе появится архив.
 
-# Install dependencies
-npm install
+После для добавления паролей из этого архива в программу, в которой этих паролей нет(например, вы переустановили Windows), сделайте следующее:
 
-# Run in `debug` mode, to debug app using VSCODE
-npm run debug
+1. Перейдите в папку %APPDATA%/LocalPass.
+2. Распакуйте папку passwords из архива (резервной копии) в эту папку.
 
-# Run in `dev` mode
-npm run dev
+Вы также можете переносить отдельные файлы из папки passwords архива в папку passwords программы.
 
-# Build installer for this app
-npm run build
-```
 
-### Project structure
 
-`src/main` contains electron main script.
+LocalPass имеет две темы - светлую и темную:
 
-`src/renderer` contains vue-js application.
+![image-20211003124325910](https://i.ibb.co/GcWqs7q/image-20211003124341556.png)
 
-`src/utilities/workerSample.ts` a sample worker script.
-
-#### Credits
-
-All credits to authors of packages and tools used in the project.
-
-\* This template is inspired by [electron-vue](https://github.com/SimulatedGREG/electron-vue)
-
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/jbeguna04"><img src="https://avatars3.githubusercontent.com/u/35353768?v=4" width="100px;" alt=""/><br /><sub><b>Jibbie R. Eguna</b></sub></a><br /><a href="#design-jbeguna04" title="Design">🎨</a></td>
-    <td align="center"><a href="https://github.com/eiurur"><img src="https://avatars0.githubusercontent.com/u/4101830?v=4" width="100px;" alt=""/><br /><sub><b>eiurur</b></sub></a><br /><a href="https://github.com/mubaidr/vue-electron-template/commits?author=eiurur" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+![image-20211003124341556](https://i.ibb.co/fdV8h5H/image-20211003124325910.png)
