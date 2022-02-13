@@ -26,7 +26,6 @@ export default function () {
           passwordsPath = `${desktopPath}/lp-passwords (${index}).zip`
         }
         util.promisify(fs.writeFile)(passwordsPath, content)
-        console.log('ah')
       })
     })
 }

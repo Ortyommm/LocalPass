@@ -35,7 +35,7 @@ const router = new Router({
         icon: 'fa-home',
       },
       beforeEnter(to, from, next) {
-        console.log(store.getters.pinKey)
+        // console.log(store.getters.pinKey)
         if (store.getters.pinKey) {
           next()
           return

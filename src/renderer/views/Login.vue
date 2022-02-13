@@ -116,7 +116,6 @@ export default Vue.extend({
        this.isDisabled = true
        this.setError('Неверный пароль')
      }
-      console.log({isPinRight})
     }
   },
   data(){

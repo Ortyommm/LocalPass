@@ -8,6 +8,18 @@
       <i class="bi bi-exclamation-triangle-fill me-2"></i>
       <div>{{ errorText }}</div>
     </div>
+    <div
+      v-if="successText"
+      class="alert alert-success d-flex align-items-center mt-1"
+      style="left: 50%; transform: translateX(-50%)"
+      role="alert"
+    >
+      <i class="bi bi-check me-2"></i>
+      <div>
+        {{ successText }}
+        <!--Success text-->
+      </div>
+    </div>
 
     <form @submit.prevent="onSubmit">
       <div class="form-floating 100">
@@ -65,6 +77,7 @@ export default {
       newPin: '',
       newPinConfirm: '',
       errorText: '',
+      successText: ''
     }
   },
   computed: {
@@ -124,7 +137,7 @@ export default {
         for (const key in passData) {
           const decryptedKey = decrypt(key, this.pinKey)
           const decryptedValue = decrypt(passData[key], this.pinKey)
-          console.log({decryptedKey, newPin})
+          // console.log({decryptedKey, newPin})
           const newEncryptedKey = encrypt(decryptedKey, newPin)
           const newEncryptedValue = encrypt(decryptedValue, newPin)
           newPassData[newEncryptedKey] = newEncryptedValue
@@ -136,12 +149,21 @@ export default {
         )
       })
       store.commit('setPinKey', newPin)
+      this.setSuccess('Пароль успешно обновлён!')
     },
     setError(text) {
       this.errorText = text
       clearTimeout(this.lastErrorTimeout)
       this.lastErrorTimeout = setTimeout(() => {
         this.errorText = ''
+      }, 2000)
+    },
+    setSuccess(text) {
+      this.errorText = ''
+      clearTimeout(this.lastSuccessTimeout)
+      this.successText = text
+      this.lastSuccessTimeout = setTimeout(() => {
+        this.successText = ''
       }, 2000)
     },
   },

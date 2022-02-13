@@ -20,8 +20,6 @@ function decrypt(str, key) {
   return decrypted
 }
 
-//TODO THEME
-
 async function scryptHash(str, salt) {
   const saltInUse = salt || crypto.randomBytes(16).toString('hex')
 

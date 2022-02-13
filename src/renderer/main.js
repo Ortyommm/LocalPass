@@ -16,7 +16,8 @@ Vue.config.performance = isDev
 Vue.config.productionTip = isDev
 
 // tslint:disable-next-line: no-unused-expression
-
+//TODO theme change
+//TODO load password archive
 new Vue({
   el: '#app',
   router,

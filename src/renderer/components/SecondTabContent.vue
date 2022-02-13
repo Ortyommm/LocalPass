@@ -98,7 +98,7 @@ export default {
     },
     decryptedPasswordToFields(){
       this.fields = []
-      console.log(this.decryptedPassword)
+      // console.log(this.decryptedPassword)
       this.fields = this.decryptedPassword.map(([key, value]) => {
         this.lastId++
         return { id: this.lastId, key, value }
@@ -139,7 +139,7 @@ export default {
       const keyArray = this.fields.map((el) => el.key.trim())
       const keySet = new Set(keyArray)
       const valuesArray = this.fields.map((el) => el.value.trim())
-      console.log({keySet, keyArray})
+      // console.log({keySet, keyArray})
 
       if(!this.passName.trim()){
         this.setError('Имя не должно быть пустым')
@@ -171,7 +171,6 @@ export default {
       if(this.decryptedPassword){
         this.setPasswords(this.passwords.map(p => {
           if(p.fileName === this.fileName){
-            console.log({ passName: this.passName, passData, fileName: this.fileName })
             p = { passName: this.passName, passData, fileName: this.fileName }
           }
           return p
@@ -191,7 +190,6 @@ export default {
         this.lastId++
         this.fields = [{ id: this.lastId, key: '', value: '' }]
         this.passName = ''
-        console.log({fields: this.fields })
         this.setSuccess('Успешно сохранено!')
       } else {
         this.setSuccess('Успешно обновлено!')
