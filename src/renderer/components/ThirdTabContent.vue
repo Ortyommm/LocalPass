@@ -16,23 +16,27 @@
       <i class="bi bi-check me-2"></i>
       <div>
         {{ successText }}
-        <!--Success text-->
       </div>
     </div>
-    <h2>Пароли:</h2>
+    <h2>{{ $t('common.passwords') }}:</h2>
     <div class="mt-3 justify-content-between row">
       <div class="col-12">
         <button class="btn btn-primary" @click="createBackup">
-          Создать резервную копию
+          {{$t('settings.createBackup')}}
         </button>
         <!--<button class="btn btn-secondary col-5" id="openBackupBtn">Открыть резервную копию</button>-->
       </div>
       <div class="col-12 mt-2">
         <button class="btn btn-danger" @click="showPinEditModal = true">
-          Изменить пароль приложения
+          {{$t('settings.changePassword')}}
         </button>
       </div>
-<!--      <hr class="mt-4" />-->
+      <hr class="mt-4" />
+      <div class='row'>
+        <h2>{{$t('settings.language')}}:</h2>
+        <button class='btn btn-primary col-4' @click="setLocale()">{{ $i18n.locale }}</button>
+      </div>
+
 <!--      <h2>Внешний вид:</h2>-->
 <!--      <div class="col-12 mt-2">-->
 <!--        <button class="btn btn-primary" @click="changeTheme">-->
@@ -69,10 +73,11 @@ export default {
     },
     createBackup() {
       saveBackupOnDesktop().then(() => {
-        this.setSuccess('Резервная копия успешно сохранена на рабочий стол')
+        this.setSuccess(this.$t('settings.createBackupSuccess'))
       })
     },
-    changeTheme() {
+    setLocale(){
+      this.$i18n.locale = this.$i18n.locale === 'ru' ? 'en' : 'ru'
     },
   },
 }

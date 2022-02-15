@@ -8,14 +8,14 @@
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Действия
+        {{ $t('passwordsTab.actions') }}
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li>
-          <a class="dropdown-item deletePass" href="#" @click.stop="$emit('delete', password)">Удалить</a>
+          <a class="dropdown-item deletePass" href="#" @click.stop="$emit('delete', password)">{{$t('passwordsTab.delete')}}</a>
         </li>
         <li>
-          <a class="dropdown-item editPass" href="#" @click.stop="$emit('edit', password)">Редактировать</a>
+          <a class="dropdown-item editPass" href="#" @click.stop="$emit('edit', password)">{{$t('passwordsTab.edit')}}</a>
         </li>
       </ul>
     </div>

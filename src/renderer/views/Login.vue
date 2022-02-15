@@ -9,7 +9,7 @@
     "
     style="height: 100vh"
   >
-    <h1 class="mb-4">{{ isFirstLaunch ? 'Создайте ваш пароль': 'Введите пароль...' }}</h1>
+    <h1 class="mb-4">{{ isFirstLaunch ? $t('login.createPassword') : $t('login.enterPassword') }}</h1>
     <form @submit="onFormSubmit">
       <div class="form-floating 100">
         <input
@@ -21,9 +21,8 @@
           :disabled="!isFirstLaunch && isDisabledByTimeout"
           :value="pin"
         />
-        <label for="pinCode">Пароль</label>
+        <label for="pinCode">{{ $t('common.password') }}</label>
       </div>
-
       <div class="form-floating 100 mt-2" v-if="isFirstLaunch">
         <input
           id="confirmPin"
@@ -33,7 +32,7 @@
           :value="confirmPin"
           @input="onConfirmPinInput"
         />
-        <label for="confirmPin">Повторите пароль</label>
+        <label for="confirmPin">{{ $t('login.repeatPassword') }}</label>
       </div>
 
       <button
@@ -41,7 +40,7 @@
         class="btn btn-primary mt-2"
         :disabled="!isFirstLaunch && isDisabled"
       >
-        Войти
+        {{ $t('login.enterBtn') }}
       </button>
     </form>
     <div style="height: 183px" v-if="errorText">
@@ -82,7 +81,6 @@ export default Vue.extend({
       this.confirmPin = (e.target).value
       this.isDisabled = !this.pin || !this.confirmPin
     },
-
     setError(text){
       this.errorText = text
       this.isDisabledByTimeout = true

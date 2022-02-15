@@ -25,8 +25,8 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Поиск"
-        aria-label="Поиск"
+        :placeholder="$t('passwordsTab.search')"
+        :aria-label="$t('passwordsTab.search')"
         aria-describedby="basic-addon1"
         :value='query'
         @input='onSearchInput'

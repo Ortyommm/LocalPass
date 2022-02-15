@@ -8,6 +8,7 @@ import './assets/style/animations.scss'
 import './assets/style/main.scss'
 import router from './router/index'
 import store from './store/index'
+import { i18n } from './plugins/i18n'
 // import PortalVue from 'portal-vue'
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -22,9 +23,10 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   render: (h) => h(App),
 })
-
+console.log({ i18n })
 // to avoild accesing electorn api from web app build
 if (window && window.process && window.process.type === 'renderer') {
   const { ipcRenderer } = require('electron')

@@ -8,7 +8,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for='[key, value] in decryptedPassword'>
+        <tr v-for='[key, value] in decryptedPassword' :key='key'>
           <td><p class="text-break">{{ key }}</p></td>
           <td>
             <div class="d-flex justify-content-between">

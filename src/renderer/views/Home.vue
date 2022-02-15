@@ -38,10 +38,14 @@ export default {
       this.currentTab = index
     },
   },
+  computed: {
+    tabs(){
+     return[ this.$t('common.passwords'),this.$t('tabs.createPassword') , this.$t('tabs.settings')]
+    }
+  },
   data() {
     return {
       currentTab: 0,
-      tabs: ['Пароли', 'Создать пароль', 'Опции'],
     }
   },
 }
