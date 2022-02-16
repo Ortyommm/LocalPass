@@ -5,7 +5,7 @@ export default {
     },
   },
   state: {
-    passwords: null,
+    passwords: [],
   },
   mutations: {
     setPasswords(state, value) {

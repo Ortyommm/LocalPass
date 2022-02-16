@@ -1,12 +1,15 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import {
+  createMemoryHistory,
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+} from 'vue-router/dist/vue-router.esm-browser.js'
 import Login from 'src/renderer/views/Login.vue'
 import Home from 'src/renderer/views/Home'
 import store from '../store'
 
-Vue.use(Router)
-
-const router = new Router({
+const router = createRouter({
+  history: createMemoryHistory(),
   routes: [
     {
       path: '/',

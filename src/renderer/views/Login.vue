@@ -10,20 +10,20 @@
     style="height: 100vh"
   >
     <h1 class="mb-4">{{ isFirstLaunch ? $t('login.createPassword') : $t('login.enterPassword') }}</h1>
-    <form @submit="onFormSubmit">
+    <form @submit.prevent="onFormSubmit">
       <div class="form-floating 100">
         <input
           type="password"
           class="form-control"
           id="pinCode"
           placeholder="1234"
+          :value="pin"
           @input="onPinInput"
           :disabled="!isFirstLaunch && isDisabledByTimeout"
-          :value="pin"
         />
         <label for="pinCode">{{ $t('common.password') }}</label>
       </div>
-      <div class="form-floating 100 mt-2" v-if="isFirstLaunch">
+      <div v-if="isFirstLaunch" class="form-floating 100 mt-2">
         <input
           id="confirmPin"
           type="password"
@@ -62,14 +62,13 @@
   </div>
 </template>
 
-<script>
-import Vue from 'vue'
+<script >
 import {scryptVerify, scryptHash} from "../utils/cryptoFunctions";
 import {pinStore} from "../utils/electronStore";
 import {mapMutations} from "vuex";
 const crypto = require('crypto')
 
-export default Vue.extend({
+export default {
   name: 'Login',
   methods: {
     ...mapMutations(['setPinKey']),
@@ -77,7 +76,7 @@ export default Vue.extend({
       this.pin = (e.target).value
       this.isDisabled = this.isFirstLaunch ? !this.pin || !this.confirmPin: !this.pin
     },
-    onConfirmPinInput(e ){
+    onConfirmPinInput(e){
       this.confirmPin = (e.target).value
       this.isDisabled = !this.pin || !this.confirmPin
     },
@@ -90,7 +89,7 @@ export default Vue.extend({
       }, 2000)
     },
    async onFormSubmit(e){
-      e.preventDefault()
+  console.log({e})
       if(this.isFirstLaunch && this.pin !== this.confirmPin){
         this.setError('Пароли не совпадают!')
         return
@@ -129,7 +128,7 @@ export default Vue.extend({
   created() {
     this.isFirstLaunch = !pinStore.isExist('pin.key')
   }
-})
+}
 </script>
 
 <style>

@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -121,6 +121,8 @@ const config = {
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env.PRODUCT_NAME': JSON.stringify(productName),
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -129,10 +131,11 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.common.js',
+      // vue$: 'vue/dist/vue.common.js',
       '@': path.join(__dirname, '../src/'),
       src: path.join(__dirname, '../src/'),
       icons: path.join(__dirname, '../_icons/'),
+      vue: '@vue/runtime-dom',
     },
     extensions: ['.ts', '.js', '.vue', '.json'],
   },

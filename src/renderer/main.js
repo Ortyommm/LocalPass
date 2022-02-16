@@ -1,10 +1,12 @@
 import 'bulma-fluent/bulma.sass'
 import 'material-design-icons/iconfont/material-icons.css'
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/bootstrap.min.css'
 import './assets/font/bootstrap-icons.css'
 import './assets/style/animations.scss'
+import './assets/js/popper.min'
+import './assets/js/bootstrap.min'
 import './assets/style/main.scss'
 import router from './router/index'
 import store from './store/index'
@@ -12,20 +14,25 @@ import { i18n } from './plugins/i18n'
 // import PortalVue from 'portal-vue'
 const isDev = process.env.NODE_ENV === 'development'
 
-Vue.config.devtools = isDev
-Vue.config.performance = isDev
-Vue.config.productionTip = isDev
+// Vue.config.devtools = isDev
+// Vue.config.performance = isDev
+// Vue.config.productionTip = isDev
 
 //TODO theme change?
 //TODO load password archive
 //TODO languages
-new Vue({
-  el: '#app',
-  router,
-  store,
-  i18n,
-  render: (h) => h(App),
-})
+const app = createApp(App)
+app.use(router)
+app.use(store)
+app.use(i18n)
+app.mount('#app')
+// new Vue({
+//   el: '#app',
+//   router,
+//   store,
+//   i18n,
+//   render: (h) => h(App),
+// })
 console.log({ i18n })
 // to avoild accesing electorn api from web app build
 if (window && window.process && window.process.type === 'renderer') {

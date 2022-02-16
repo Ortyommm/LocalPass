@@ -2,7 +2,7 @@
   <div class="keyValuePair">
     <div class="d-flex justify-content-between mt-2">
       <div class="form-floating w-25">
-        <input type="text" class="form-control key" placeholder="Поле" v-model:value="key">
+        <input type="text" class="form-control key" placeholder="Поле" v-model="key">
         <label>Поле</label>
       </div>
       <div class="form-floating" style="width: 70%;">

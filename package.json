@@ -3,18 +3,18 @@
   "dependencies": {
     "@electron/remote": "^1.1.0",
     "@meyl_on/extended-js": "^0.1.3",
+    "@popperjs/core": "^2.11.2",
     "bulma-fluent": "^0.4.3",
     "electron-debug": "^3.2.0",
     "glob": "^7.2.0",
     "jszip": "^3.7.1",
     "material-design-icons": "^3.0.1",
     "platform-folders": "^0.5.4",
-    "portal-vue": "^2.1.7",
-    "vue": "^2.6.12",
+    "vue": "^3.2.31",
     "vue-electron": "^1.0.6",
-    "vue-i18n": "8",
-    "vue-router": "^3.5.1",
-    "vuex": "^3.6.2"
+    "vue-i18n": "^9",
+    "vue-router": "^4.0.12",
+    "vuex": "^4"
   },
   "description": "Храни свои пароли в безопасности!",
   "devDependencies": {
@@ -63,9 +63,8 @@
     "typescript": "^4.2.4",
     "url-loader": "^4.1.1",
     "vue-eslint-parser": "^7.6.0",
-    "vue-loader": "^15.9.6",
+    "vue-loader": "^16.8.3",
     "vue-style-loader": "^4.1.3",
-    "vue-template-compiler": "^2.6.12",
     "webpack": "^5.31.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"

@@ -1,6 +1,6 @@
 <template>
   <li class="nav-item">
-    <a @click="onTabClick" href="#" :class="isActive ? 'active nav-link ' : 'nav-link' "><slot /></a>
+    <a @click.prevent="onTabClick" href="#" :class="isActive ? 'active nav-link ' : 'nav-link' "><slot /></a>
   </li>
 </template>
 
@@ -12,10 +12,9 @@ export default {
     isActive: Boolean,
   },
   methods: {
-    onTabClick ( e ) {
-      e.preventDefault();
-      //@ts-ignore
-      this.$emit('click', this.index)
+    onTabClick () {
+      // e.preventDefault();
+      this.$emit('tabClick', this.index)
     }
   }
 }

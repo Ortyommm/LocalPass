@@ -95,8 +95,8 @@ app.on('ready', () => {
   createWindow()
 
   if (isDev) {
-    installDevTools()
-    mainWindow.webContents.openDevTools()
+    // installDevTools()
+    // mainWindow.webContents.openDevTools()
     // if (process.env.NODE_ENV !== 'production') {
     //   console.log('instelled')
     //   require('vue-devtools').install()

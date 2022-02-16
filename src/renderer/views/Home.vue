@@ -6,7 +6,7 @@
         :index="i"
         :key="tab"
         :isActive="currentTab === i"
-        @click="onTabClick"
+        @tabClick="onTabClick"
       >
         {{ tab }}
       </Tab>
@@ -35,7 +35,9 @@ export default {
   },
   methods: {
     onTabClick(index) {
+      console.log({index})
       this.currentTab = index
+      console.log(this.currentTab)
     },
   },
   computed: {

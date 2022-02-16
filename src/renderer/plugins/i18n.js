@@ -1,13 +1,12 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 import ru from 'src/renderer/plugins/locales/ru'
 import en from 'src/renderer/plugins/locales/en'
 
-Vue.use(VueI18n)
-
-export const i18n = new VueI18n({
+export const i18n = new createI18n({
+  legacy: false,
   locale: 'en',
   fallbackLocale: 'ru',
+  globalInjection: true,
   messages: {
     ru,
     en,

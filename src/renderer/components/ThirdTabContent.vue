@@ -1,11 +1,11 @@
 <template>
   <div class="mt-2">
-    <Portal to="modal">
+<!--    <Portal to="modal">-->
       <PinEditModal
         v-if="showPinEditModal"
         @closeModal="showPinEditModal = false"
       />
-    </Portal>
+<!--    </Portal>-->
     <div
       v-if="successText"
       class="alert alert-success d-flex align-items-center mt-1"
@@ -51,11 +51,11 @@
 <script>
 import saveBackupOnDesktop from 'src/renderer/utils/saveBackupOnDesktop'
 import PinEditModal from 'src/renderer/components/PinEditModal'
-import { Portal } from 'portal-vue'
+// import { Portal } from 'portal-vue'
 
 export default {
   name: 'ThirdTabContent',
-  components: { PinEditModal, Portal },
+  components: { PinEditModal },
   data() {
     return {
       successText: '',
