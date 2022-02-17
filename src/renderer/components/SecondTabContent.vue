@@ -37,7 +37,7 @@
         :uid="field.id"
         :defaultKey='decryptedPassword ? field.key : null'
         :defaultValue='decryptedPassword ? field.value : null'
-        @input="onKeyValueInput"
+        @custom-input="onKeyValueInput"
         @delete="onKeyValueDelete"
       />
     </div>

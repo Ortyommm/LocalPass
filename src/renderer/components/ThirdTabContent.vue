@@ -34,7 +34,7 @@
       <hr class="mt-4" />
       <div class='row'>
         <h2>{{$t('settings.language')}}:</h2>
-        <button class='btn btn-primary col-4' @click="setLocale()">{{ $i18n.locale }}</button>
+        <button class='btn btn-primary col-4' @click="setLocale">{{ $i18n.locale }}</button>
       </div>
 
 <!--      <h2>Внешний вид:</h2>-->
@@ -51,7 +51,7 @@
 <script>
 import saveBackupOnDesktop from 'src/renderer/utils/saveBackupOnDesktop'
 import PinEditModal from 'src/renderer/components/PinEditModal'
-// import { Portal } from 'portal-vue'
+import { i18n } from 'src/renderer/plugins/i18n'
 
 export default {
   name: 'ThirdTabContent',
@@ -77,7 +77,8 @@ export default {
       })
     },
     setLocale(){
-      this.$i18n.locale = this.$i18n.locale === 'ru' ? 'en' : 'ru'
+      this.$root.$i18n.locale = this.$root.$i18n.locale === 'ru' ? 'en' : 'ru'
+      console.log('clicked', this.$root.$i18n.locale)
     },
   },
 }

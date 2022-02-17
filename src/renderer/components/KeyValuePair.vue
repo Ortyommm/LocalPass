@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     onInput(){
-      this.$emit('input', {data: [this.key, this.value], id: this.uid})
+      this.$emit('custom-input', {data: [this.key, this.value], id: this.uid})
     }
   }
 }

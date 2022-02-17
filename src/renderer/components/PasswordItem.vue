@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-between list-group-item list-group-item-action passwordItem" @click.self="$emit('click', password)">
+  <div class="d-flex justify-content-between list-group-item list-group-item-action passwordItem" @click.self="$emit('open', password)">
     <div>{{ password.passName }}</div>
     <div class="dropdown">
       <button

@@ -1,23 +1,23 @@
 <template>
   <div>
-<!--    <Portal to="modal">-->
-      <DeleteModal
-        v-if="showDeleteModal"
-        :password="currentPassword"
-        @deleteConfirm="onPasswordDeleteConfirm"
-        @closeModal="onModalClose"
-      />
-      <PasswordModal
-        v-if="showPasswordModal"
-        :password="currentPassword"
-        @closeModal="onModalClose"
-      />
-      <PasswordEditModal
-        v-if="showPasswordEditModal"
-        :password="currentPassword"
-        @closeModal="onModalClose"
-      />
-<!--    </Portal>-->
+    <!--    <Portal to="modal">-->
+    <DeleteModal
+      v-if="showDeleteModal"
+      :password="currentPassword"
+      @deleteConfirm="onPasswordDeleteConfirm"
+      @closeModal="onModalClose"
+    />
+    <PasswordModal
+      v-if="showPasswordModal"
+      :password="currentPassword"
+      @closeModal="onModalClose"
+    />
+    <PasswordEditModal
+      v-if="showPasswordEditModal"
+      :password="currentPassword"
+      @closeModal="onModalClose"
+    />
+    <!--    </Portal>-->
     <div class="input-group mb-3 mt-2">
       <span class="input-group-text">
         <i class="bi bi-search"></i>
@@ -28,21 +28,21 @@
         :placeholder="$t('passwordsTab.search')"
         :aria-label="$t('passwordsTab.search')"
         aria-describedby="basic-addon1"
-        :value='query'
-        @input='onSearchInput'
+        :value="query"
+        @input="onSearchInput"
       />
     </div>
-    <template v-if="passwords.length > 0">
-    <div class="list-group mt-2">
-      <PasswordItem
-        v-for="password in filteredPasswords"
-        :password="password"
-        :key="JSON.stringify(password.passData)"
-        @delete="onPasswordDelete(password)"
-        @click="onPasswordClick(password)"
-        @edit="onPasswordEdit(password)"
-      />
-    </div>
+    <template v-if="$store.getters.passwords.length > 0">
+      <div class="list-group mt-2">
+        <PasswordItem
+          v-for="password in filteredPasswords"
+          :password="password"
+          :key="JSON.stringify(password.passData)"
+          @delete="onPasswordDelete(password)"
+          @open="onPasswordClick(password)"
+          @edit="onPasswordEdit(password)"
+        />
+      </div>
     </template>
     <template v-else>
       <h2>Паролей нет!</h2>
@@ -57,7 +57,7 @@ import PasswordItem from 'src/renderer/components/PasswordItem'
 import DeleteModal from 'src/renderer/components/DeleteModal'
 import PasswordModal from 'src/renderer/components/PasswordModal'
 import PasswordEditModal from 'src/renderer/components/PasswordEditModal'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'FirstTabContent',
@@ -74,23 +74,31 @@ export default {
       showPasswordEditModal: false,
       currentPassword: null,
       filteredPasswords: [],
-      query: ''
+      query: '',
     }
   },
   computed: {
-    ...mapGetters(['passwords']),
+    //VUE 3 is caching computed properties, so I can use it now only for watch
+    passwords() {
+      return this.$store.getters.passwords
+    },
   },
-  watch: {
-    passwords(){
-      console.log('passwords')
-      this.filteredPasswords = this.passwords.filter(password => password.passName.toLocaleLowerCase().includes(this.query.toLocaleLowerCase()))
-    }
-  },
+  // watch: {
+  //   passwords: function (){
+  //     console.log('passwords')
+  //     this.filteredPasswords = this.$store.getters.passwords.filter(password => password.passName.toLocaleLowerCase().includes(this.query.toLocaleLowerCase()))
+  //   }
+  // },
   methods: {
     ...mapMutations(['setPasswords']),
-    onSearchInput(e){
+    onSearchInput(e) {
       this.query = e.target.value
-      this.filteredPasswords = this.passwords.filter(password => password.passName.toLocaleLowerCase().includes(this.query.toLocaleLowerCase()))
+      this.filteredPasswords = this.$store.getters.passwords.filter(
+        (password) =>
+          password.passName
+            .toLocaleLowerCase()
+            .includes(this.query.toLocaleLowerCase())
+      )
     },
     onPasswordClick(password) {
       this.currentPassword = password
@@ -103,7 +111,9 @@ export default {
     onPasswordDeleteConfirm(password) {
       passStore.delete(password.fileName)
       this.setPasswords(
-        this.passwords.filter((el) => el.fileName !== password.fileName)
+        this.$store.getters.passwords.filter(
+          (el) => el.fileName !== password.fileName
+        )
       )
       this.showDeleteModal = false
       this.currentPassword = null
@@ -121,6 +131,17 @@ export default {
     },
   },
   created() {
+    //because computed not working
+    this.$store.subscribe((mutation) => {
+      if (mutation.type === 'setPasswords') {
+        this.filteredPasswords = mutation.payload.filter((password) =>
+          password.passName
+            .toLocaleLowerCase()
+            .includes(this.query.toLocaleLowerCase())
+        )
+      }
+    })
+
     let passwordsPaths = passStore.getFilesPaths()
     const passwords = []
     for (const path of passwordsPaths) {
