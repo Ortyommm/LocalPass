@@ -3,8 +3,8 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Ключ</th>
-          <th scope="col">Значение</th>
+          <th scope="col">{{ $t('common.key') }}</th>
+          <th scope="col">{{ $t('common.value') }}</th>
         </tr>
       </thead>
       <tbody>

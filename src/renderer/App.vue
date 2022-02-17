@@ -2,7 +2,6 @@
   <div id="app" class="container-fluid">
     <script type="application/javascript" defer src="src/renderer/assets/js/popper.min.js"></script>
     <script type="application/javascript" defer src="src/renderer/assets/js/bootstrap.min.js"></script>
-    <PortalTarget name="modal"></PortalTarget>
 
     <Transition mode="out-in" name="slide-up">
       <!-- <keep-alive> -->
@@ -13,12 +12,11 @@
 </template>
 
 <script>
-import {PortalTarget} from 'portal-vue'
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'ImageParsing',
-  components: {PortalTarget}
+  components: {}
 })
 </script>
 

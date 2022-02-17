@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between mt-2">
       <div class="form-floating w-25">
         <input type="text" class="form-control key" placeholder="Поле" v-model:value="key">
-        <label>Поле</label>
+        <label>{{$t('common.field')}}</label>
       </div>
       <div class="form-floating" style="width: 70%;">
         <textarea class="form-control textarea-controlled value" :placeholder="$t('common.value')" v-model="value"></textarea>

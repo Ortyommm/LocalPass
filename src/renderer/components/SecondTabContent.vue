@@ -24,12 +24,12 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Имя"
+          :placeholder="$t('common.name')"
           id="passName"
           v-model="passName"
           @delete="onKeyValueDelete"
         />
-        <label for="passName">Имя</label>
+        <label for="passName">{{ $t('common.name') }}</label>
       </div>
       <KeyValuePair
         v-for="field in fields"
@@ -50,7 +50,7 @@
         ></i>
       </div>
       <button type="button" class="btn btn-success mt-5" @click="savePassword">
-        Сохранить
+        {{$t('common.save')}}
       </button>
     </div>
   </div>
@@ -142,17 +142,17 @@ export default {
       // console.log({keySet, keyArray})
 
       if(!this.passName.trim()){
-        this.setError('Имя не должно быть пустым')
+        this.setError(this.$t('errors.emptyPasswordName'))
         return
       }
 
       if(keyArray.includes('') || valuesArray.includes('')){
-        this.setError('Поля и значения не должны быть пустыми')
+        this.setError(this.$t('errors.emptyKeysOrValues'))
         return
       }
 
       if (keyArray.length !== keySet.size) {
-        this.setError('Ключи не должны повторяться')
+        this.setError(this.$t('errors.repeatedKeys'))
         return
       }
 
@@ -190,9 +190,9 @@ export default {
         this.lastId++
         this.fields = [{ id: this.lastId, key: '', value: '' }]
         this.passName = ''
-        this.setSuccess('Успешно сохранено!')
+        this.setSuccess(this.$t('success.saved'))
       } else {
-        this.setSuccess('Успешно обновлено!')
+        this.setSuccess(this.$t('success.updated'))
       }
     },
   },

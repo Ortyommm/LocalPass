@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Portal to="modal">
       <DeleteModal
         v-if="showDeleteModal"
         :password="currentPassword"
@@ -17,7 +16,6 @@
         :password="currentPassword"
         @closeModal="onModalClose"
       />
-    </Portal>
     <div class="input-group mb-3 mt-2">
       <span class="input-group-text">
         <i class="bi bi-search"></i>
@@ -56,7 +54,6 @@ import { passStore } from '../utils/electronStore'
 import PasswordItem from 'src/renderer/components/PasswordItem'
 import DeleteModal from 'src/renderer/components/DeleteModal'
 import PasswordModal from 'src/renderer/components/PasswordModal'
-import { Portal } from 'portal-vue'
 import PasswordEditModal from 'src/renderer/components/PasswordEditModal'
 import { mapGetters, mapMutations } from 'vuex'
 
@@ -67,7 +64,6 @@ export default {
     PasswordModal,
     DeleteModal,
     PasswordItem,
-    Portal,
   },
   data() {
     return {

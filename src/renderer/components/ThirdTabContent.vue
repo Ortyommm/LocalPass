@@ -1,11 +1,9 @@
 <template>
   <div class="mt-2">
-    <Portal to="modal">
       <PinEditModal
         v-if="showPinEditModal"
         @closeModal="showPinEditModal = false"
       />
-    </Portal>
     <div
       v-if="successText"
       class="alert alert-success d-flex align-items-center mt-1"
@@ -34,7 +32,7 @@
       <hr class="mt-4" />
       <div class='row'>
         <h2>{{$t('settings.language')}}:</h2>
-        <button class='btn btn-primary col-4' @click="setLocale()">{{ $i18n.locale }}</button>
+        <button class='btn btn-primary col-4 mt-3' @click="setLocale">{{ $i18n.locale }}</button>
       </div>
 
 <!--      <h2>Внешний вид:</h2>-->
@@ -51,11 +49,10 @@
 <script>
 import saveBackupOnDesktop from 'src/renderer/utils/saveBackupOnDesktop'
 import PinEditModal from 'src/renderer/components/PinEditModal'
-import { Portal } from 'portal-vue'
 
 export default {
   name: 'ThirdTabContent',
-  components: { PinEditModal, Portal },
+  components: { PinEditModal },
   data() {
     return {
       successText: '',

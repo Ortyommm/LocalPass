@@ -25,5 +25,30 @@ export default {
     passwords: 'Пароли',
     password: 'Пароль',
     value: 'Значение',
+    key: 'Ключ',
+    field: 'Поле',
+    save: 'Сохранить',
+    change: 'Изменить',
+    name: 'Имя',
+  },
+  deleteModal: {
+    delete: 'Удалить',
+    message: 'Вы уверены, что хотите удалить пароль',
+  },
+  changeAppPasswordModal: {
+    title: 'Изменение пароля приложения',
+    oldPassword: 'Старый пароль',
+    newPassword: 'Новый пароль',
+    confirmPassword: 'Подтвердите пароль',
+  },
+  errors: {
+    emptyPasswordName: 'Имя пароля не должно быть пустым',
+    emptyKeysOrValues: 'Поля и значения не должны быть пустыми',
+    repeatedKeys: 'Ключи не должны повторяться',
+  },
+
+  success: {
+    saved: 'Успешно сохранено!',
+    updated: 'Успешно обновлено!',
   },
 }

@@ -9,7 +9,6 @@ import './assets/style/main.scss'
 import router from './router/index'
 import store from './store/index'
 import { i18n } from './plugins/i18n'
-// import PortalVue from 'portal-vue'
 const isDev = process.env.NODE_ENV === 'development'
 
 Vue.config.devtools = isDev

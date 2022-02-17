@@ -1,5 +1,5 @@
 <template>
-  <Modal title="Изменение пароля приложения" @closeModal="$emit('closeModal')">
+  <Modal :title="$t('changeAppPasswordModal.title')" @closeModal="$emit('closeModal')">
     <div
       v-if="errorText"
       class="alert alert-danger d-flex align-items-center"
@@ -30,7 +30,7 @@
           class="form-control"
           placeholder="1234"
         />
-        <label for="oldPin">Старый пароль</label>
+        <label for="oldPin">{{$t('changeAppPasswordModal.oldPassword')}}</label>
       </div>
       <div class="form-floating 100 mt-2">
         <input
@@ -40,7 +40,7 @@
           class="form-control"
           placeholder="1234"
         />
-        <label for="newPin">Новый пароль</label>
+        <label for="newPin">{{$t('changeAppPasswordModal.newPassword')}}</label>
       </div>
       <div class="form-floating 100 mt-2">
         <input
@@ -50,9 +50,9 @@
           class="form-control"
           placeholder="1234"
         />
-        <label for="confirmNewPin">Подтвердите пароль</label>
+        <label for="confirmNewPin">{{$t('changeAppPasswordModal.confirmPassword')}}</label>
       </div>
-      <button type="submit" class="btn btn-danger mt-2">Изменить</button>
+      <button type="submit" class="btn btn-danger mt-2">{{ $t('common.change') }}</button>
     </form>
   </Modal>
 </template>

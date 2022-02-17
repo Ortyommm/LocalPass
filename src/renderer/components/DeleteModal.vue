@@ -1,7 +1,7 @@
 <template>
     <Modal :title="password.passName" @closeModal="$emit('closeModal')">
       <p>
-        Вы уверены, что хотите удалить пароль
+        {{$t('deleteModal.message')}}
         <strong>{{ password.passName }}</strong
         >?
       </p>
@@ -10,7 +10,7 @@
         class="btn btn-danger"
         @click="$emit('deleteConfirm', password)"
       >
-        Удалить
+        {{ $t('deleteModal.delete') }}
       </button>
     </Modal>
 </template>
