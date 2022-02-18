@@ -36,3 +36,16 @@ LocalPass - password storage software. Supports english language since v1.4.0
 
 Вы также можете переносить отдельные файлы из папки passwords архива в папку passwords программы.
 
+---
+Changelog:
+### 1.4.0:
+- English translation
+- Little fixes
+
+### 1.3.0:
+- Fully rewritten with Vue.js
+- Electron 12
+- Disabled dark theme
+
+### 1.2.2:
+- Last pure js version
