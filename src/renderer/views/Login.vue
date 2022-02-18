@@ -92,7 +92,7 @@ export default Vue.extend({
    async onFormSubmit(e){
       e.preventDefault()
       if(this.isFirstLaunch && this.pin !== this.confirmPin){
-        this.setError('Пароли не совпадают!')
+        this.setError(this.$t('errors.passwordsNotEqual'))
         return
       }
      if (this.isFirstLaunch) {
@@ -112,7 +112,7 @@ export default Vue.extend({
        this.$router.replace('/home')
      } else {
        this.isDisabled = true
-       this.setError('Неверный пароль')
+       this.setError(this.$t('errors.incorrectPassword'))
      }
     }
   },

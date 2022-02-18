@@ -45,6 +45,12 @@ export default {
     emptyPasswordName: 'Имя пароля не должно быть пустым',
     emptyKeysOrValues: 'Поля и значения не должны быть пустыми',
     repeatedKeys: 'Ключи не должны повторяться',
+    passwordsNotEqual: 'Пароли не совпадают',
+    incorrectPassword: 'Неправильный пароль',
+    incorrectOldPassword: 'Старый пароль введён неверно',
+    emptyFields: 'Все поля должны быть заполнены',
+    notEqualNewConfirmPasswords: 'Новый и подтверждаемый пароли не совпадают',
+    oldNewPasswordEqual: 'Новый и старый пароли не совпадают',
   },
 
   success: {

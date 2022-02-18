@@ -45,6 +45,13 @@ export default {
     emptyPasswordName: "Name shouldn't be empty",
     emptyKeysOrValues: "Values or keys shouldn't be empty",
     repeatedKeys: "Keys shouldn't repeat",
+    passwordsNotEqual: "Passwords aren't equal",
+    incorrectPassword: 'Incorrect password',
+    incorrectOldPassword: 'Old password is incorrect',
+    emptyFields: 'All fields should be filled',
+    notEqualNewConfirmPasswords:
+      '"New password" and "Repeat password" fields do not match',
+    oldNewPasswordEqual: 'New and old passwords do not match',
   },
   success: {
     saved: 'Saved successfully',

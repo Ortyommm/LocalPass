@@ -92,7 +92,7 @@ export default {
         !this.newPin.trim() ||
         !this.newPinConfirm.trim()
       ) {
-        this.setError('Все поля должны быть заполнены!')
+        this.setError(this.$t('errors.emptyFields'))
         return
       }
 
@@ -103,17 +103,17 @@ export default {
       )
 
       if (!isOldPinCorrect) {
-        this.setError('Старый пароль введён неверно!')
+        this.setError(this.$t('errors.incorrectOldPassword'))
         return
       }
 
       if (this.newPin.trim() !== this.newPinConfirm.trim()) {
-        this.setError('Новый и подтверждаемый пароли не совпадают!')
+        this.setError(this.$t('errors.notEqualNewConfirmPasswords'))
         return
       }
 
       if (this.newPin.trim() === this.oldPin.trim()) {
-        this.setError('Новый и старый пароли не должны совпадать!')
+        this.setError(this.$t('errors.oldNewPasswordEqual'))
         return
       }
 
@@ -149,7 +149,7 @@ export default {
         )
       })
       store.commit('setPinKey', newPin)
-      this.setSuccess('Пароль успешно обновлён!')
+      this.setSuccess(this.$t('success.updated'))
     },
     setError(text) {
       this.errorText = text
