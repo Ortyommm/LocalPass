@@ -43,8 +43,8 @@
     </div>
     </template>
     <template v-else>
-      <h2>Паролей нет!</h2>
-      <p>Чтобы их создать перейдите в раздел "Создать пароль"</p>
+      <h2>{{ $t('mainTab.noPasswords') }}</h2>
+      <p>{{ $t('mainTab.noPasswordsTip') }}</p>
     </template>
   </div>
 </template>

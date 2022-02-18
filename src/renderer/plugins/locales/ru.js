@@ -11,6 +11,10 @@ export default {
     changePassword: 'Изменить пароль приложения',
     language: 'Язык',
   },
+  mainTab: {
+    noPasswords: 'Паролей нет!',
+    noPasswordsTip: 'Чтобы их создать перейдите в раздел "Создать пароль"',
+  },
   tabs: {
     createPassword: 'Создать пароль',
     settings: 'Опции',

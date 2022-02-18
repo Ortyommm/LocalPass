@@ -11,6 +11,10 @@ export default {
     changePassword: 'Change application password',
     language: 'Language',
   },
+  mainTab: {
+    noPasswords: 'No passwords',
+    noPasswordsTip: 'To create a password go to "Create password" tab',
+  },
   tabs: {
     createPassword: 'Create password',
     settings: 'Settings',
