@@ -32,7 +32,7 @@
       <hr class="mt-4" />
       <div class='row'>
         <h2>{{$t('settings.language')}}:</h2>
-        <button class='btn btn-primary col-4 mt-3' @click="setLocale">{{ $i18n.locale }}</button>
+        <button class='btn btn-primary col-4 mt-3' @click="setLocale">{{ getLocaleString() }}</button>
       </div>
 
 <!--      <h2>Внешний вид:</h2>-->
@@ -72,6 +72,14 @@ export default {
       saveBackupOnDesktop().then(() => {
         this.setSuccess(this.$t('settings.createBackupSuccess'))
       })
+    },
+    getLocaleString(){
+      switch (this.$i18n.locale){
+        case 'ru':
+          return 'Русский'
+        case 'en':
+          return 'English'
+      }
     },
     setLocale(){
       this.$i18n.locale = this.$i18n.locale === 'ru' ? 'en' : 'ru'
