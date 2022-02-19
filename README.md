@@ -41,6 +41,7 @@ Changelog:
 ### 1.4.1:
 - Loading backups feature
 - Login input focus on application start
+- Changed language name in settings
 
 ### 1.4.0:
 - English translation
