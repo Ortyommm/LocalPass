@@ -17,6 +17,7 @@
           class="form-control"
           id="pinCode"
           placeholder="1234"
+          ref="pin"
           @input="onPinInput"
           :disabled="!isFirstLaunch && isDisabledByTimeout"
           :value="pin"
@@ -114,6 +115,9 @@ export default Vue.extend({
        this.isDisabled = true
        this.setError(this.$t('errors.incorrectPassword'))
      }
+    },
+    focusInput(){
+      this.$nextTick(() => this.$refs.pin.focus())
     }
   },
   data(){
@@ -128,6 +132,7 @@ export default Vue.extend({
   },
   created() {
     this.isFirstLaunch = !pinStore.isExist('pin.key')
+    this.focusInput()
   }
 })
 </script>
