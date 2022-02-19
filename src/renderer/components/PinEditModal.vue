@@ -149,6 +149,7 @@ export default {
         )
       })
       store.commit('setPinKey', newPin)
+      this.$emit('changePassword')
       this.setSuccess(this.$t('success.updated'))
     },
     setError(text) {

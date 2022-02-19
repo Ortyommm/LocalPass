@@ -7,6 +7,7 @@ export default {
   },
   settings: {
     createBackup: 'Create backup',
+    loadBackup: 'Load backup',
     createBackupSuccess: 'Successfully created backup',
     changePassword: 'Change application password',
     language: 'Language',
@@ -56,9 +57,13 @@ export default {
     notEqualNewConfirmPasswords:
       '"New password" and "Repeat password" fields do not match',
     oldNewPasswordEqual: 'New and old passwords do not match',
+    notZip: 'File extension isn\'t ".zip"',
+    importingPin:
+      "Can't decrypt some passwords with your current application password. Change it to original value for importing passwords.",
   },
   success: {
     saved: 'Saved successfully',
     updated: 'Updated successfully',
+    importedPasswords: 'All possible passwords have been imported',
   },
 }

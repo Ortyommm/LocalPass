@@ -70,6 +70,20 @@ const crypto = require('crypto')
 
 export default Vue.extend({
   name: 'Login',
+  data() {
+    return {
+      pin: '',
+      confirmPin: '',
+      isDisabled: true,
+      isFirstLaunch: false,
+      errorText: '',
+      isDisabledByTimeout: false,
+    }
+  },
+  created() {
+    this.focusInput()
+    this.isFirstLaunch = !pinStore.isExist('pin.key')
+  },
   methods: {
     ...mapMutations(['setPinKey']),
     onPinInput(e) {
@@ -119,20 +133,6 @@ export default Vue.extend({
     focusInput() {
       this.$nextTick(() => this.$refs.pin.focus())
     },
-  },
-  data() {
-    return {
-      pin: '',
-      confirmPin: '',
-      isDisabled: true,
-      isFirstLaunch: false,
-      errorText: '',
-      isDisabledByTimeout: false,
-    }
-  },
-  created() {
-    this.focusInput()
-    this.isFirstLaunch = !pinStore.isExist('pin.key')
   },
 })
 </script>

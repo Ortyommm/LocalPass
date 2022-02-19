@@ -7,6 +7,7 @@ export default {
   },
   settings: {
     createBackup: 'Создать резервную копию',
+    loadBackup: 'Загрузить резервную копию',
     createBackupSuccess: 'Резервная копия успешно сохранена на рабочий стол',
     changePassword: 'Изменить пароль приложения',
     language: 'Язык',
@@ -55,10 +56,14 @@ export default {
     emptyFields: 'Все поля должны быть заполнены',
     notEqualNewConfirmPasswords: 'Новый и подтверждаемый пароли не совпадают',
     oldNewPasswordEqual: 'Новый и старый пароли не совпадают',
+    notZip: 'Расширение файла не ".zip"',
+    importingPin:
+      'Не получается расшифровать некоторые пароли вашим текущим паролем приложения. Поменяйте его.',
   },
 
   success: {
     saved: 'Успешно сохранено!',
     updated: 'Успешно обновлено!',
+    importedPasswords: 'Все возможные пароли были импортированы',
   },
 }
