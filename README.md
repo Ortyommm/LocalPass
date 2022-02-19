@@ -38,6 +38,10 @@ LocalPass - password storage software. Supports english language since v1.4.0
 
 ---
 Changelog:
+### 1.4.1:
+- Loading backups feature
+- Login input focus on application start
+
 ### 1.4.0:
 - English translation
 - Little fixes
