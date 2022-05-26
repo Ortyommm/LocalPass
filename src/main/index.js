@@ -53,7 +53,7 @@ function createWindow() {
     backgroundColor: '#fff',
     width: 1024,
     height: 768,
-    minWidth: 960,
+    minWidth: 800,
     minHeight: 540,
     // useContentSize: true,
     webPreferences: {

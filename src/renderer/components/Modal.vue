@@ -16,11 +16,11 @@
               {{ title }}
             </h5>
             <button
-              @click="$emit('closeModal')"
-              type="button"
               class="btn-close"
-              data-bs-dismiss="modal"
               aria-label="Close"
+              data-bs-dismiss="modal"
+              type="button"
+              @click="$emit('closeModal')"
             ></button>
           </div>
           <div class="modal-body">
@@ -42,4 +42,24 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style lang='scss' scoped>
+
+  .modal-dialog {
+    @media (min-width: 576px) {
+      max-width: 540px;
+    }
+    @media (min-width: 768px) {
+      max-width: 720px;
+    }
+    @media (min-width: 992px) {
+      max-width: 960px;
+    }
+    @media (min-width: 1200px) {
+      max-width: 1140px;
+    }
+    @media (min-width: 1408px) {
+    max-width: 1344px;
+    }
+  }
+
+</style>
