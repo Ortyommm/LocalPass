@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @keydown='onKeyDown'>
     <div
       v-if="errorText"
       class="alert alert-danger d-flex align-items-center mt-1 "
@@ -33,6 +33,7 @@
       </div>
       <KeyValuePair
         v-for="field in fields"
+        ref='keyValuePair'
         :key="field.id"
         :uid="field.id"
         :defaultKey='decryptedPassword ? field.key : null'
@@ -93,6 +94,12 @@ export default {
     }
   },
   methods: {
+    onKeyDown(event){
+      if(event.target === this.$refs.keyValuePair[this.$refs.keyValuePair.length-1].$el.querySelector('textarea') && event.key === 'Tab')
+        this.createField()
+
+      if(event.key === 'Enter' && event.ctrlKey) this.savePassword()
+    },
     setPasswords(passwords){
       (this.$store || store).commit('setPasswords', passwords)
     },

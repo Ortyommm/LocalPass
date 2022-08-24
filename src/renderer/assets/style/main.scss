@@ -50,6 +50,17 @@ span + .material-icons {
 textarea.form-control.textarea-controlled {
   min-height: 58px;
   max-height: 120px;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #f0f0f0;
+    border-radius: 0.1rem;
+    width: 5px;
+  }
 }
 
 body::-webkit-scrollbar {
