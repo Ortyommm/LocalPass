@@ -1,5 +1,9 @@
 {
-  "author": "Artem Margaryan",
+  "author": {
+    "email": "artem@artemdev.com",
+    "name": "Artem Margaryan"
+  },
+  "description": "Password storage software",
   "dependencies": {
     "@electron/remote": "^1.1.0",
     "@meyl_on/extended-js": "^0.1.3",

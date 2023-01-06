@@ -45,8 +45,8 @@ const config = {
     },
   },
   linux: {
-    icon: '_icons/icon.png',
-    target: ['deb', 'snap', 'AppImage'],
+    icon: '_icons/icon.icns',
+    target: ['deb', /*'snap',*/ /*'AppImage'*/],
   },
   mac: {
     category: 'public.app-category.utilities',
@@ -66,7 +66,7 @@ const config = {
 
 builder
   .build({
-    targets,
+    // targets,
     config,
   })
   .then((m) => {
